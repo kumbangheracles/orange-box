@@ -40,7 +40,7 @@ const TotalAmount = () => {
   };
 
   return (
-    <div className="p-7 bg-white rounded-md w-full h-full lg:w-[30%] overflow-hidden">
+    <div className="p-7 bg-white rounded-md border-2 border-orange-400 w-full h-full lg:w-[30%] overflow-hidden">
       <h4>Total Amount</h4>
       <div className="flex justify-center items-center h-[200px] sm:h-[300px]">
         <Pie data={data} options={options} />

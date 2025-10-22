@@ -4,7 +4,11 @@ import CardSummary from "./CardSummary";
 import AppLayout from "./Layout";
 import Temperature from "./Temperature";
 import TotalAmount from "./TotalAmount";
+import dynamic from "next/dynamic";
 
+const Map = dynamic(() => import("../components/Map"), {
+  ssr: false,
+});
 const AllSection = () => {
   //
   return (
@@ -29,6 +33,9 @@ const AllSection = () => {
         <div className="flex flex-col sm:flex-row gap-4 mt-4 sm:h-[394px]">
           <Temperature />
           <TotalAmount />
+        </div>
+        <div className="p-4 border-2 border-orange-400 bg-white rounded mt-2">
+          <Map />
         </div>
       </div>
     </AppLayout>

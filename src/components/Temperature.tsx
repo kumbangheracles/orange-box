@@ -84,7 +84,7 @@ const Temperature = () => {
   };
 
   return (
-    <div className="sm:w-[70%] w-full p-7 bg-white h-[394px] sm:h-full rounded-lg">
+    <div className="sm:w-[70%] w-full p-7 bg-white border-2 border-orange-400 h-[394px] sm:h-full rounded-lg">
       <h4>Temperature</h4>
       <Line data={chartData} options={chartOptions} />
     </div>

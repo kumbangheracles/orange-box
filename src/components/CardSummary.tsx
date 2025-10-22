@@ -25,7 +25,7 @@ const CardSummary = ({
     <div
       data-aos={dataAos}
       data-aos-delay={delay}
-      className={`p-4 rounded-lg flex items-center bg-white gap-4 w-[100%] relative sm:w-full ${className}`}
+      className={`p-4 rounded-lg flex items-center bg-white border-2 border-orange-400 gap-4 w-[100%] relative sm:w-full ${className}`}
       style={style}
     >
       <div className="absolute right-3 top-3 text-[8px] sm:text-xl">{icon}</div>
