@@ -1,6 +1,6 @@
 "use client";
 import useDeviceType from "@/hooks/useDeviceType";
-const listView = () => {
+const useListView = () => {
   const isXSM = useDeviceType(325);
   const isESM = useDeviceType(425);
   const isSM = useDeviceType(640);
@@ -17,4 +17,4 @@ const listView = () => {
   };
 };
 
-export default listView;
+export default useListView;

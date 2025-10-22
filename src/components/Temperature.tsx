@@ -21,7 +21,6 @@ ChartJS.register(
 );
 const Temperature = () => {
   const isMobile = useDeviceType();
-  // const { isLG, isMD, isSM, isXL, isXSM, isESM } = listView();
   const { isXSM } = useView();
   const chartData = {
     labels: Array.from({ length: isMobile ? 5 : 10 }, (_, i) => `Day ${i + 1}`),
