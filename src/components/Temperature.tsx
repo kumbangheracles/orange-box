@@ -4,14 +4,12 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
   LineElement,
   PointElement,
   Legend,
   Tooltip,
 } from "chart.js";
-import listView from "@/lib/listView";
-import { Bar, Line } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import useView from "@/hooks/useView";
 ChartJS.register(
   LineElement,
@@ -24,7 +22,7 @@ ChartJS.register(
 const Temperature = () => {
   const isMobile = useDeviceType();
   // const { isLG, isMD, isSM, isXL, isXSM, isESM } = listView();
-  const { isXSM, isESM, isSM, isMD, isLG, isXL } = useView();
+  const { isXSM } = useView();
   const chartData = {
     labels: Array.from({ length: isMobile ? 5 : 10 }, (_, i) => `Day ${i + 1}`),
     datasets: [
