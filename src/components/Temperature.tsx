@@ -1,5 +1,6 @@
 "use client";
 import useDeviceType from "@/hooks/useDeviceType";
+import type { TooltipItem } from "chart.js";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -48,7 +49,7 @@ const Temperature = () => {
       legend: { display: false },
       tooltip: {
         callbacks: {
-          label: (context: any) => `Views: ${context.raw}`,
+          label: (context: TooltipItem<"line">) => `Views: ${context.raw}`,
         },
       },
     },
