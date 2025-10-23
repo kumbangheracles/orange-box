@@ -6,10 +6,17 @@ import Temperature from "./Temperature";
 import TotalAmount from "./TotalAmount";
 import dynamic from "next/dynamic";
 
+interface PropTypes {
+  dataV1?: string;
+  dataV2?: number;
+  dataV3?: number;
+}
+
 const Map = dynamic(() => import("../components/Map"), {
   ssr: false,
 });
-const AllSection = () => {
+
+const AllSection = ({ dataV1, dataV2, dataV3 }: PropTypes) => {
   //
   return (
     <AppLayout>
