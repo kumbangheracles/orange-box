@@ -38,8 +38,8 @@ const AllSection = ({ dataV1, dataV2, dataV3 }: PropTypes) => {
           })}
         </div>
         <div className="flex flex-col sm:flex-row gap-4 mt-4 sm:h-[394px]">
-          <Temperature />
-          <TotalAmount />
+          <TotalAmount jenisSampah="anorganik" dataAmount={50} />
+          <TotalAmount jenisSampah="organik" dataAmount={89} />
         </div>
         <div className="p-4 border-2 border-orange-400 bg-white rounded-lg mt-2">
           <Map />

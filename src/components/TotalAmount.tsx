@@ -1,30 +1,33 @@
 "use client";
-import { Pie } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { cn } from "@/lib/cn";
 ChartJS.register(ArcElement, Tooltip, Legend);
-const TotalAmount = () => {
+
+interface PropTypes {
+  jenisSampah?: "organik" | "anorganik";
+  dataAmount?: number;
+}
+
+const TotalAmount = ({ jenisSampah, dataAmount }: PropTypes) => {
   const data = {
-    labels: ["Organik", "Anorganik", "B3"], // label kategori
+    labels: jenisSampah === "organik" ? ["Organik"] : ["Anorganik"], // label kategori
     datasets: [
       {
-        label: "Jenis Sampah",
-        data: [45, 30, 25], // persentase masing-masing kategori
-        backgroundColor: [
-          "rgba(75, 192, 192, 0.6)", // hijau muda
-          "rgba(255, 205, 86, 0.6)", // kuning
-          "rgba(255, 99, 132, 0.6)", // merah muda
-        ],
+        label: "Percentage",
+        data: [25], // persentase masing-masing kategori
+        backgroundColor: [jenisSampah === "organik" ? "#61B852" : "#1E90FF"],
         borderColor: [
-          "rgba(75, 192, 192, 1)",
+          "#ffffff",
           "rgba(255, 205, 86, 1)",
           "rgba(255, 99, 132, 1)",
         ],
         borderWidth: 1,
+        // circumference: 180,
       },
     ],
   };
 
-  // Opsi chart
   const options = {
     responsive: true,
     plugins: {
@@ -39,10 +42,19 @@ const TotalAmount = () => {
   };
 
   return (
-    <div className="p-7 bg-white rounded-md border-2 border-orange-400 w-full h-full lg:w-[30%] overflow-hidden">
-      <h4>Total Amount</h4>
+    <div
+      className={` p-7 sm:p-1 bg-white rounded-md border-2 border-orange-400 w-full flex items-center flex-col justify-center gap-3 h-full  overflow-hidden relative`}
+    >
+      <h4
+        className={`!font-bold absolute sm:left-10 sm:top-10 sm:text-5xl left-5 top-5 text-2xl ${cn(
+          jenisSampah === "organik" ? "text-[#61B852]" : "text-[#1E90FF]"
+        )}`}
+      >
+        {dataAmount}%
+        {/* {jenisSampah === "organik" ? "Organik" : "Anorganik"} */}
+      </h4>
       <div className="flex justify-center items-center h-[200px] sm:h-[300px]">
-        <Pie data={data} options={options} />
+        <Doughnut data={data} options={options} />
       </div>
     </div>
   );

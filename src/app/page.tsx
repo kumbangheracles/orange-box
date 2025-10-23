@@ -1,7 +1,6 @@
-import AllSection from "@/components/AllSection";
 import axiosBlynk from "@/lib/axiosBylink";
-import useClientBlynk from "@/hooks/useClientBlynk";
 import ClientDashboard from "@/components/ClientDashboard";
+import { Empty } from "antd";
 export const metadata = {
   title: "Orange Box | Dashboard",
   description: "This is a dashboard for orange box",
@@ -17,10 +16,16 @@ export default async function Home() {
   ]);
 
   return (
-    <ClientDashboard
-      initialV1={v1.data}
-      initialV2={v2.data}
-      initialV3={v3.data}
-    />
+    <>
+      {!v1 || !v2 || !v3 ? (
+        <Empty />
+      ) : (
+        <ClientDashboard
+          initialV1={v1.data}
+          initialV2={v2.data}
+          initialV3={v3.data}
+        />
+      )}
+    </>
   );
 }
