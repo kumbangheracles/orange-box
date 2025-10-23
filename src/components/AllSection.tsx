@@ -34,7 +34,7 @@ const AllSection = () => {
           <Temperature />
           <TotalAmount />
         </div>
-        <div className="p-4 border-2 border-orange-400 bg-white rounded mt-2">
+        <div className="p-4 border-2 border-orange-400 bg-white rounded-lg mt-2">
           <Map />
         </div>
       </div>
