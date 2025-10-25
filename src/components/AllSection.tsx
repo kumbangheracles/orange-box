@@ -2,7 +2,6 @@
 import { RightCircleOutlined } from "@ant-design/icons";
 import CardSummary from "./CardSummary";
 import AppLayout from "./Layout";
-import Temperature from "./Temperature";
 import TotalAmount from "./TotalAmount";
 import dynamic from "next/dynamic";
 
@@ -10,13 +9,14 @@ interface PropTypes {
   dataV1?: string;
   dataV2?: number;
   dataV3?: number;
+  dataV4?: number;
 }
 
 const Map = dynamic(() => import("../components/Map"), {
   ssr: false,
 });
 
-const AllSection = ({ dataV1, dataV2, dataV3 }: PropTypes) => {
+const AllSection = ({ dataV2, dataV3 }: PropTypes) => {
   //
   return (
     <AppLayout>
@@ -38,8 +38,8 @@ const AllSection = ({ dataV1, dataV2, dataV3 }: PropTypes) => {
           })}
         </div>
         <div className="flex flex-col sm:flex-row gap-4 mt-4 sm:h-[394px]">
-          <TotalAmount jenisSampah="anorganik" dataAmount={50} />
-          <TotalAmount jenisSampah="organik" dataAmount={89} />
+          <TotalAmount jenisSampah="anorganik" dataAmount={dataV2 ?? 0} />
+          <TotalAmount jenisSampah="organik" dataAmount={dataV3 ?? 0} />
         </div>
         <div className="p-4 border-2 border-orange-400 bg-white rounded-lg mt-2">
           <Map />

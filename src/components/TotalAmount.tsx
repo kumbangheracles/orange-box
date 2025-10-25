@@ -10,19 +10,23 @@ interface PropTypes {
 }
 
 const TotalAmount = ({ jenisSampah, dataAmount }: PropTypes) => {
+  const integerDataAmouont = Math.floor(dataAmount as number);
   const data = {
     labels: jenisSampah === "organik" ? ["Organik"] : ["Anorganik"], // label kategori
     datasets: [
       {
         label: "Percentage",
-        data: [25], // persentase masing-masing kategori
-        backgroundColor: [jenisSampah === "organik" ? "#61B852" : "#1E90FF"],
-        borderColor: [
+        data: [dataAmount, 100 - dataAmount!], // persentase masing-masing kategori
+        backgroundColor: [
+          jenisSampah === "organik" ? "#61B852" : "#1E90FF",
           "#ffffff",
-          "rgba(255, 205, 86, 1)",
-          "rgba(255, 99, 132, 1)",
         ],
-        borderWidth: 1,
+        borderColor: [
+          "#000000",
+          // "rgba(255, 205, 86, 1)",
+          // "rgba(255, 99, 132, 1)",
+        ],
+        borderWidth: 2,
         // circumference: 180,
       },
     ],
@@ -30,6 +34,7 @@ const TotalAmount = ({ jenisSampah, dataAmount }: PropTypes) => {
 
   const options = {
     responsive: true,
+    cutout: "50%",
     plugins: {
       legend: {
         position: "bottom" as const,
@@ -37,6 +42,11 @@ const TotalAmount = ({ jenisSampah, dataAmount }: PropTypes) => {
       title: {
         display: true,
         text: "Persentase Jenis Sampah",
+      },
+      elements: {
+        center: {
+          text: `${dataAmount}%`,
+        },
       },
     },
   };
@@ -50,7 +60,7 @@ const TotalAmount = ({ jenisSampah, dataAmount }: PropTypes) => {
           jenisSampah === "organik" ? "text-[#61B852]" : "text-[#1E90FF]"
         )}`}
       >
-        {dataAmount}%
+        {integerDataAmouont}%
         {/* {jenisSampah === "organik" ? "Organik" : "Anorganik"} */}
       </h4>
       <div className="flex justify-center items-center h-[200px] sm:h-[300px]">

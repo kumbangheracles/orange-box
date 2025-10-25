@@ -20,8 +20,7 @@ axiosBlynk.interceptors.request.use(
 axiosBlynk.interceptors.response.use(
   (response) => response.data,
   (error) => {
-    console.error("Blynk API Error:", error.message);
-    return Promise.reject(error);
+    console.log("Error fetch data: ", error);
   }
 );
 
