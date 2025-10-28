@@ -2,7 +2,7 @@
 
 import { ReactNode } from "react";
 
-interface PropTypes {
+export interface PropTypesSumm {
   title: string;
   totalData: number;
   icon: ReactNode;
@@ -20,7 +20,7 @@ const CardSummary = ({
   style,
   dataAos,
   delay,
-}: PropTypes) => {
+}: PropTypesSumm) => {
   return (
     <div
       data-aos={dataAos}

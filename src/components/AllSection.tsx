@@ -16,13 +16,34 @@ const Map = dynamic(() => import("../components/Map"), {
   ssr: false,
 });
 
+const dataSumm = [
+  {
+    id: 1,
+    title: "Organik",
+    icon: <RightCircleOutlined />,
+    totalData: 68,
+  },
+  {
+    id: 2,
+    title: "Anorganik",
+    icon: <RightCircleOutlined />,
+    totalData: 72,
+  },
+  {
+    id: 3,
+    title: "Organik",
+    icon: <RightCircleOutlined />,
+    totalData: 120,
+  },
+];
+
 const AllSection = ({ dataV2, dataV3 }: PropTypes) => {
   //
   return (
     <AppLayout>
       <div className="p-4">
         <div className="grid grid-cols-3 lg:flex gap-2 lg:gap-4  ">
-          {Array.from({ length: 3 }, (_, index) => {
+          {/* {Array.from({ length: 3 }, (_, index) => {
             const delay = 100 + Math.floor(index / 3) * 50;
 
             return (
@@ -30,6 +51,21 @@ const AllSection = ({ dataV2, dataV3 }: PropTypes) => {
                 key={index}
                 title={`Temperature ${index + 1}`}
                 totalData={2000}
+                icon={<RightCircleOutlined />}
+                dataAos="fade-right"
+                delay={delay}
+              />
+            );
+          })} */}
+
+          {dataSumm.map((item) => {
+            const delay = 100 + Math.floor(item.id / 3) * 50;
+
+            return (
+              <CardSummary
+                key={item.id}
+                title={item.title}
+                totalData={item.totalData}
                 icon={<RightCircleOutlined />}
                 dataAos="fade-right"
                 delay={delay}
