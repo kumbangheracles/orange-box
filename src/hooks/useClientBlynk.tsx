@@ -24,19 +24,22 @@ function useClientBlynk({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [newV1, newV2, newV3] = await Promise.all([
+        const [newV1, newV2, newV3, newV4] = await Promise.all([
           axiosBlynk.get(`/get?V1`),
           axiosBlynk.get(`/get?V2`),
           axiosBlynk.get(`/get?V3`),
+          axiosBlynk.get(`/get?V4`),
         ]);
 
         setV1(newV1.data);
         setV2(Number(newV2));
         setV3(Number(newV3));
+        setV4(Number(newV3));
 
         console.log("Data v1:", newV1);
         console.log("Data v2:", newV2);
         console.log("Data v3:", newV3);
+        console.log("Data v4:", newV4);
       } catch (err) {
         console.error("Blynk fetch error:", err);
       }

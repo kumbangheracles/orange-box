@@ -37,7 +37,7 @@ const dataSumm = [
   },
 ];
 
-const AllSection = ({ dataV2, dataV3 }: PropTypes) => {
+const AllSection = ({ dataV4, dataV3 }: PropTypes) => {
   //
   return (
     <AppLayout>
@@ -74,7 +74,7 @@ const AllSection = ({ dataV2, dataV3 }: PropTypes) => {
           })}
         </div>
         <div className="flex flex-col sm:flex-row gap-4 mt-4 sm:h-[394px]">
-          <TotalAmount jenisSampah="anorganik" dataAmount={dataV2 ?? 0} />
+          <TotalAmount jenisSampah="anorganik" dataAmount={dataV4 ?? 0} />
           <TotalAmount jenisSampah="organik" dataAmount={dataV3 ?? 0} />
         </div>
         <div className="p-4 border-2 border-orange-400 bg-white rounded-lg mt-2">

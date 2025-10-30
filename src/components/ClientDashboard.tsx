@@ -16,12 +16,12 @@ export default function ClientDashboard({
   initialV3,
   initialV4,
 }: Props) {
-  const { v1, v2, v3 } = useClientBlynk({
+  const { v1, v2, v3, v4 } = useClientBlynk({
     initialV1,
     initialV2,
     initialV3,
     initialV4,
   });
 
-  return <AllSection dataV1={v1} dataV2={v2} dataV3={v3} />;
+  return <AllSection dataV1={v1} dataV2={v2} dataV3={v3} dataV4={v4} />;
 }
