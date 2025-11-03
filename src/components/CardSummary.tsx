@@ -1,15 +1,18 @@
 "use client";
 
+import { cn } from "@/lib/cn";
 import { ReactNode } from "react";
 
 export interface PropTypesSumm {
   title: string;
-  totalData: number;
+  totalData: number | string;
   icon: ReactNode;
   className?: string;
   style?: React.CSSProperties;
   dataAos?: string;
   delay?: number;
+  dataMap?: string;
+  isMap?: boolean;
 }
 
 const CardSummary = ({
@@ -20,6 +23,7 @@ const CardSummary = ({
   style,
   dataAos,
   delay,
+  isMap,
 }: PropTypesSumm) => {
   return (
     <div
@@ -33,7 +37,13 @@ const CardSummary = ({
       </div>
       <div className="p-2 flex flex-col gap-2">
         <span className=" text-[8px] sm:text-sm">{title}</span>
-        <span className="text-xl font-bold">{totalData}</span>
+        <span
+          className={`${cn(
+            isMap ? "text-[10px] sm:text-xl" : "text-xl"
+          )} font-bold`}
+        >
+          {totalData}
+        </span>
       </div>
     </div>
   );

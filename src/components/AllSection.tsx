@@ -16,34 +16,35 @@ const Map = dynamic(() => import("../components/Map"), {
   ssr: false,
 });
 
-const dataSumm = [
-  {
-    id: 1,
-    title: "Organik",
-    icon: <RightCircleOutlined />,
-    totalData: 68,
-  },
-  {
-    id: 2,
-    title: "Anorganik",
-    icon: <RightCircleOutlined />,
-    totalData: 72,
-  },
-  {
-    id: 3,
-    title: "Organik",
-    icon: <RightCircleOutlined />,
-    totalData: 120,
-  },
-];
-
-const AllSection = ({ dataV4, dataV3 }: PropTypes) => {
+const AllSection = ({ dataV4, dataV3, dataV1 }: PropTypes) => {
   //
+  const dataSumm = [
+    {
+      id: 1,
+      title: "Organik",
+      icon: <RightCircleOutlined />,
+      totalData: dataV3 as number,
+      isMap: false,
+    },
+    {
+      id: 2,
+      title: "Anorganik",
+      icon: <RightCircleOutlined />,
+      totalData: dataV4 as number,
+      isMap: false,
+    },
+    {
+      id: 3,
+      title: "Lokasi",
+      icon: <RightCircleOutlined />,
+      totalData: dataV1 || "Jakarta, Indonesia",
+      isMap: true,
+    },
+  ];
   return (
-    <AppLayout>
-      <div className="p-4">
-        <div className="grid grid-cols-3 lg:flex gap-2 lg:gap-4  ">
-          {/* {Array.from({ length: 3 }, (_, index) => {
+    <div className="p-4">
+      <div className="grid grid-cols-3 lg:flex gap-2 lg:gap-4  ">
+        {/* {Array.from({ length: 3 }, (_, index) => {
             const delay = 100 + Math.floor(index / 3) * 50;
 
             return (
@@ -58,30 +59,30 @@ const AllSection = ({ dataV4, dataV3 }: PropTypes) => {
             );
           })} */}
 
-          {dataSumm.map((item) => {
-            const delay = 100 + Math.floor(item.id / 3) * 50;
+        {dataSumm.map((item) => {
+          const delay = 100 + Math.floor(item.id / 3) * 50;
 
-            return (
-              <CardSummary
-                key={item.id}
-                title={item.title}
-                totalData={item.totalData}
-                icon={<RightCircleOutlined />}
-                dataAos="fade-right"
-                delay={delay}
-              />
-            );
-          })}
-        </div>
-        <div className="flex flex-col sm:flex-row gap-4 mt-4 sm:h-[394px]">
-          <TotalAmount jenisSampah="anorganik" dataAmount={dataV4 ?? 0} />
-          <TotalAmount jenisSampah="organik" dataAmount={dataV3 ?? 0} />
-        </div>
-        <div className="p-4 border-2 border-orange-400 bg-white rounded-lg mt-2">
-          <Map />
-        </div>
+          return (
+            <CardSummary
+              key={item.id}
+              title={item.title}
+              totalData={item.totalData}
+              isMap={item.isMap}
+              icon={<RightCircleOutlined />}
+              dataAos="fade-right"
+              delay={delay}
+            />
+          );
+        })}
       </div>
-    </AppLayout>
+      <div className="flex flex-col sm:flex-row gap-4 mt-4 sm:h-[394px]">
+        <TotalAmount jenisSampah="anorganik" dataAmount={dataV4 ?? 0} />
+        <TotalAmount jenisSampah="organik" dataAmount={dataV3 ?? 0} />
+      </div>
+      <div className="p-4 border-2 border-orange-400 bg-white rounded-lg mt-2">
+        <Map />
+      </div>
+    </div>
   );
 };
 

@@ -4,6 +4,7 @@ import Aos from "aos";
 import { ReactNode, useEffect } from "react";
 import Navbar from "./Navbar";
 import GlobalBackground from "./GlobalBackground";
+import Footer from "./Footer";
 
 interface PropTypes {
   children: ReactNode;
@@ -19,7 +20,8 @@ const AppLayout = ({ children }: PropTypes) => {
       <GlobalBackground />
       <Navbar />
       <br />
-      <div style={{ marginTop: 7 }}>{children}</div>
+      <div style={{ marginTop: 30 }}>{children}</div>
+      <Footer />
     </>
   );
 };
