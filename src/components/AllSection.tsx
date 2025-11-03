@@ -1,7 +1,6 @@
 "use client";
 import { RightCircleOutlined } from "@ant-design/icons";
 import CardSummary from "./CardSummary";
-import AppLayout from "./Layout";
 import TotalAmount from "./TotalAmount";
 import dynamic from "next/dynamic";
 
