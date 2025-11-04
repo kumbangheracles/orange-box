@@ -1,8 +1,26 @@
 "use client";
+import Image from "next/image";
+import MainIcon from "../assets/icons/main-icon.png";
 const Footer = () => {
   return (
     <div className=" text-white">
       <div className="flex bg-tyrel-medium p-4 justify-center sm:min-h-[300px] gap-3 sm:gap-[100px] items-center text-center flex-wrap">
+        <div className="flex gap-3 flex-col w-[250px] justify-center items-center">
+          <div className="w-[200px] flex items-center justify-center">
+            <Image
+              src={MainIcon}
+              alt="main-icon"
+              width={100}
+              height={100}
+              className="w-full h-full rounded-md"
+            />
+          </div>
+          <span className="font-semibold tracking-wider text-base text-balance">
+            Inovasi Teknologi IoT Pengelolaan limbah Anorganik Untuk
+            Meningkatkan Kesejahteraan Rakyat Berkelanjutan
+          </span>
+        </div>
+
         <span className="sm:w-[30%] w-full text-center tracking-wider px-4 py-2 sm:px-0 sm:py-0 sm:text-base sm:text-start text-sm">
           Didanai oleh Direktorat Penelitian dan Pengabdian kepada Masyarakat,
           Direktorat Jenderal Riset dan Pengembangan Kementerian Pendidikan
