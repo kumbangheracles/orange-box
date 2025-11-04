@@ -36,11 +36,11 @@ const CardSummary = ({
         {icon}
       </div>
       <div className="p-2 flex flex-col gap-2">
-        <span className=" text-[8px] sm:text-sm">{title}</span>
+        <span className=" text-[12px] sm:text-sm font-semibold tracking-wider">
+          {title}
+        </span>
         <span
-          className={`${cn(
-            isMap ? "text-[10px] sm:text-xl" : "text-xl"
-          )} font-bold`}
+          className={`${cn(isMap ? "text-[10px] sm:text-xl" : "text-xl")} `}
         >
           {totalData}
         </span>
