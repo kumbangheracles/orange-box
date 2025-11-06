@@ -1,6 +1,8 @@
 "use client";
 
 import axiosBlynk from "@/lib/axiosBylink";
+import { message } from "antd";
+import axios from "axios";
 import { useState, useEffect } from "react";
 
 interface UseClientBlynkProps {
@@ -20,6 +22,7 @@ function useClientBlynk({
   const [v2, setV2] = useState<number>(initialV2);
   const [v3, setV3] = useState<number>(initialV3);
   const [v4, setV4] = useState<number>(initialV4);
+  const [lastUpdate, setLastUpdate] = useState<number>(Date.now());
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,24 +34,55 @@ function useClientBlynk({
           axiosBlynk.get(`/get?V4`),
         ]);
 
-        setV1(newV1.data);
-        setV2(Number(newV2));
-        setV3(Number(newV3));
-        setV4(Number(newV4));
+        const val1 = newV1.data;
+        const val2 = Number(newV2);
+        const val3 = Number(newV3);
+        const val4 = Number(newV4);
 
-        console.log("Data v1:", newV1);
-        console.log("Data v2:", newV2);
-        console.log("Data v3:", newV3);
-        console.log("Data v4:", newV4);
+        setV1(val1);
+        setV2(val2);
+        setV3(val3);
+        setV4(val4);
+        setLastUpdate(Date.now()); // update waktu terakhir berhasil fetch
+
+        console.log("Blynk Data:", { val1, val2, val3, val4 });
       } catch (err) {
         console.error("Blynk fetch error:", err);
       }
     };
 
+    // fetch pertama kali
     fetchData();
-    const interval = setInterval(fetchData, 2000);
+    // fetch setiap 2 detik
+    const interval = setInterval(fetchData, 1000);
     return () => clearInterval(interval);
   }, []);
+
+  // --- Auto Reset kalau tidak ada update dalam 10 detik ---
+  useEffect(() => {
+    if (Date.now() - lastUpdate > 10000) {
+      console.log("⚠️ Tidak ada data baru dari Blynk, reset ke 0...");
+      setV3(0);
+      setV4(0);
+    }
+
+    if (v3 >= 70) {
+      console.log("Organik sudah sampai 70%");
+    }
+
+    if (v4 >= 70) {
+      console.log("Anorganik sudah sampai 70%");
+    }
+  }, [lastUpdate]);
+
+  // --- Notifikasi ketika V3 / V4 mencapai 100 ---
+  // useEffect(() => {
+  //   if (v3 === 100 || v4 === 100) {
+  //     axios.post("/api/notify", {
+  //       message: `⚠️ Warning: Sensor mencapai 100. V3=${v3}, V4=${v4}`,
+  //     });
+  //   }
+  // }, [v3, v4]);
 
   return { v1, v2, v3, v4, setV1, setV2, setV3, setV4 };
 }

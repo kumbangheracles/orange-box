@@ -65,7 +65,14 @@ const AllSection = ({ dataV4, dataV3, dataV1 }: PropTypes) => {
             <CardSummary
               key={item.id}
               title={item.title}
-              totalData={item.totalData}
+              totalData={
+                item.isMap
+                  ? (item.totalData as string)
+                  : Number.isNaN(Number(item?.totalData)) ||
+                    item?.totalData == null
+                  ? 0
+                  : Number(item.totalData)
+              }
               isMap={item.isMap}
               icon={<RightCircleOutlined />}
               dataAos="fade-right"
@@ -75,8 +82,14 @@ const AllSection = ({ dataV4, dataV3, dataV1 }: PropTypes) => {
         })}
       </div>
       <div className="flex flex-col sm:flex-row gap-4 mt-4 sm:h-[394px]">
-        <TotalAmount jenisSampah="anorganik" dataAmount={dataV4 ?? 0} />
-        <TotalAmount jenisSampah="organik" dataAmount={dataV3 ?? 0} />
+        <TotalAmount
+          jenisSampah="anorganik"
+          dataAmount={Number.isNaN(dataV4) ? 0 : dataV4}
+        />
+        <TotalAmount
+          jenisSampah="organik"
+          dataAmount={Number.isNaN(dataV3) ? 0 : dataV3}
+        />
       </div>
       <div className="p-4 border-2 border-orange-400 bg-white rounded-lg mt-2">
         <Map />
