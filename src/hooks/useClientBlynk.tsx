@@ -34,7 +34,7 @@ function useClientBlynk({
         setV1(newV1.data);
         setV2(Number(newV2));
         setV3(Number(newV3));
-        setV4(Number(newV3));
+        setV4(Number(newV4));
 
         console.log("Data v1:", newV1);
         console.log("Data v2:", newV2);
