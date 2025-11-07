@@ -1,0 +1,3 @@
+module.exports=[48771,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(65295);a.n(d("[project]/Documents/PROGRAMMING/Alphabet Incubator/Project/orange-box/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},91904,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(65295);a.n(d("[project]/Documents/PROGRAMMING/Alphabet Incubator/Project/orange-box/node_modules/next/dist/client/components/builtin/global-error.js"))},16119,a=>{"use strict";a.i(48771);var b=a.i(91904);a.n(b)}];
+
+//# sourceMappingURL=a2607_next_dist_client_components_builtin_global-error_58750e04.js.map
