@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "node app.js",
-    "lint": "eslint"
+    "lint": "eslint",
+    "install": "npm install"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.24.0",
