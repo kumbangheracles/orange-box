@@ -12,7 +12,6 @@ Meanwhile, **ultrasonic sensors** measure the fill level of each compartment and
 The **Next.js web dashboard** is directly connected to the device, displaying real-time data such as:
 - Bin fill levels  
 - Waste type statistics (organic vs inorganic)  
-- Device status and control options  
 
 Users can also receive **notifications** when a bin is full.
 
@@ -39,7 +38,6 @@ Sementara itu, **sensor ultrasonik** mengukur volume masing-masing wadah dan men
 **Dashboard web Next.js** terhubung langsung dengan alat dan menampilkan data secara real-time, seperti:
 - Tingkat volume wadah  
 - Statistik jenis sampah (organik vs anorganik)  
-- Status alat dan kontrol manual  
 
 Pengguna juga dapat menerima **notifikasi otomatis** ketika tong sampah penuh.
 
