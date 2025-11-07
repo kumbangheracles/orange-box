@@ -3,7 +3,9 @@ import { RightCircleOutlined } from "@ant-design/icons";
 import CardSummary from "./CardSummary";
 import TotalAmount from "./TotalAmount";
 import dynamic from "next/dynamic";
-
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import AutoRefresh from "./AutoRefresh";
 interface PropTypes {
   dataV1?: string;
   dataV2?: number;
@@ -16,7 +18,6 @@ const Map = dynamic(() => import("../components/Map"), {
 });
 
 const AllSection = ({ dataV4, dataV3, dataV1 }: PropTypes) => {
-  //
   const dataSumm = [
     {
       id: 1,
@@ -42,6 +43,7 @@ const AllSection = ({ dataV4, dataV3, dataV1 }: PropTypes) => {
   ];
   return (
     <div className="p-4">
+      <AutoRefresh />
       <div className="grid grid-cols-3 lg:flex gap-2 lg:gap-4  ">
         {/* {Array.from({ length: 3 }, (_, index) => {
             const delay = 100 + Math.floor(index / 3) * 50;
