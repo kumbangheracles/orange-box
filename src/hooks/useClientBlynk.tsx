@@ -1,8 +1,8 @@
 "use client";
 
 import axiosBlynk from "@/lib/axiosBylink";
-import { message } from "antd";
-import axios from "axios";
+// import { message } from "antd";
+// import axios from "axios";
 import { useState, useEffect } from "react";
 
 interface UseClientBlynkProps {
@@ -22,7 +22,7 @@ function useClientBlynk({
   const [v2, setV2] = useState<number>(initialV2);
   const [v3, setV3] = useState<number>(initialV3);
   const [v4, setV4] = useState<number>(initialV4);
-  const [lastUpdate, setLastUpdate] = useState<number>(Date.now());
+  // const [lastUpdate, setLastUpdate] = useState<number>(Date.now());
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +43,7 @@ function useClientBlynk({
         setV2(val2);
         setV3(val3);
         setV4(val4);
-        setLastUpdate(Date.now()); // update waktu terakhir berhasil fetch
+        // setLastUpdate(Date.now()); // update waktu terakhir berhasil fetch
 
         // console.log("Blynk Data:", { val1, val2, val3, val4 });
       } catch (err) {
