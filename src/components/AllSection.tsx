@@ -2,10 +2,11 @@
 import { RightCircleOutlined } from "@ant-design/icons";
 import CardSummary from "./CardSummary";
 import TotalAmount from "./TotalAmount";
-import dynamic from "next/dynamic";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+// import dynamic from "next/dynamic";
+// import { useEffect } from "react";
+// import { useRouter } from "next/navigation";
 import AutoRefresh from "./AutoRefresh";
+import About from "./About";
 interface PropTypes {
   dataV1?: string;
   dataV2?: number;
@@ -13,9 +14,9 @@ interface PropTypes {
   dataV4?: number;
 }
 
-const Map = dynamic(() => import("../components/Map"), {
-  ssr: false,
-});
+// const Map = dynamic(() => import("../components/Map"), {
+//   ssr: false,
+// });
 
 const AllSection = ({ dataV4, dataV3, dataV1 }: PropTypes) => {
   const dataSumm = [
@@ -94,7 +95,7 @@ const AllSection = ({ dataV4, dataV3, dataV1 }: PropTypes) => {
         />
       </div>
       <div className="p-4 border-2 border-orange-400 bg-white rounded-lg mt-2">
-        <Map />
+        <About />
       </div>
     </div>
   );
