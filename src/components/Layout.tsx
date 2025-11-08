@@ -19,7 +19,7 @@ const AppLayout = ({ children }: PropTypes) => {
     <>
       <GlobalBackground />
       <Navbar />
-      <br />
+
       <div style={{ marginTop: 30 }}>{children}</div>
       <Footer />
     </>

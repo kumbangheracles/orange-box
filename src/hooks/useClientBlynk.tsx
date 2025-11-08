@@ -1,6 +1,7 @@
 "use client";
 
 import axiosBlynk from "@/lib/axiosBylink";
+import { message } from "antd";
 import axios from "axios";
 // import { message } from "antd";
 // import axios from "axios";
@@ -43,7 +44,7 @@ function useClientBlynk({
         setV1(val1);
         setV2(val2);
         setV3(val3);
-        setV4(100);
+        setV4(val4);
         // setLastUpdate(Date.now()); // update waktu terakhir berhasil fetch
 
         // console.log("Blynk Data:", { val1, val2, val3, val4 });
@@ -75,18 +76,20 @@ function useClientBlynk({
 
   // --- Notifikasi ketika V3 / V4 mencapai 100 ---
   useEffect(() => {
-    if (v3 === 100 || v4 === 100) {
-      axios.post("/api/notify", {
-        message: `⚠️ Warning: Sensor mencapai 100. V3=${v3}, V4=${v4}`,
-      });
-    }
+    // if (v3 === 100 || v4 === 100) {
+    //   axios.post("/api/notify", {
+    //     message: `⚠️ Warning: Sensor mencapai 100. V3=${v3}, V4=${v4}`,
+    //   });
+    // }
 
     if (v3 >= 70) {
       console.warn("Organik mencapai 70%");
+      // message.warning("Organik mencapai 70%");
     }
 
     if (v4 >= 70) {
       console.warn("Anorganik mencapai 70%");
+      // message.warning("Anorganik mencapai 70%");
     }
   }, [v3, v4]);
 

@@ -11,6 +11,7 @@ interface PropTypes {
 
 const TotalAmount = ({ jenisSampah, dataAmount }: PropTypes) => {
   const integerDataAmouont = Math.floor(dataAmount as number);
+
   const data = {
     labels: jenisSampah === "organik" ? ["Organik"] : ["Anorganik"], // label kategori
     datasets: [
@@ -37,7 +38,7 @@ const TotalAmount = ({ jenisSampah, dataAmount }: PropTypes) => {
     cutout: "50%",
     plugins: {
       legend: {
-        position: "bottom" as const,
+        display: false,
       },
       title: {
         display: true,
@@ -66,6 +67,13 @@ const TotalAmount = ({ jenisSampah, dataAmount }: PropTypes) => {
       <div className="flex justify-center items-center h-[200px] sm:h-[300px]">
         <Doughnut data={data} options={options} />
       </div>
+
+      <span
+        className="font-bold text-sm sm:text-base tracking-wider"
+        style={{ color: jenisSampah === "organik" ? "#61B852" : "#1E90FF" }}
+      >
+        {jenisSampah === "organik" ? "Organik" : "Anorganik"}
+      </span>
     </div>
   );
 };

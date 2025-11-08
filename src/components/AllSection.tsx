@@ -34,13 +34,6 @@ const AllSection = ({ dataV4, dataV3, dataV1 }: PropTypes) => {
       totalData: dataV4 as number,
       isMap: false,
     },
-    {
-      id: 3,
-      title: "Lokasi",
-      icon: <RightCircleOutlined />,
-      totalData: dataV1 || "Jakarta, Indonesia",
-      isMap: true,
-    },
   ];
   return (
     <div className="p-4">
@@ -61,7 +54,7 @@ const AllSection = ({ dataV4, dataV3, dataV1 }: PropTypes) => {
             );
           })} */}
 
-        {dataSumm.map((item) => {
+        {/* {dataSumm.map((item) => {
           const delay = 100 + Math.floor(item.id / 3) * 50;
 
           return (
@@ -70,7 +63,7 @@ const AllSection = ({ dataV4, dataV3, dataV1 }: PropTypes) => {
               title={item.title}
               totalData={
                 item.isMap
-                  ? (item.totalData as string)
+                  ? (item.totalData as unknown as string)
                   : Number.isNaN(Number(item?.totalData)) ||
                     item?.totalData == null
                   ? 0
@@ -82,7 +75,7 @@ const AllSection = ({ dataV4, dataV3, dataV1 }: PropTypes) => {
               delay={delay}
             />
           );
-        })}
+        })} */}
       </div>
       <div className="flex flex-col sm:flex-row gap-4 mt-4 sm:h-[394px]">
         <TotalAmount

@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 export default function AutoRefresh() {
-  const timeRefetch = 60 * 1000 * 3;
+  const timeRefetch = 60 * 1000 * 5;
 
   useEffect(() => {
     const timer = setTimeout(() => {

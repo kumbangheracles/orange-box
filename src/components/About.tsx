@@ -144,20 +144,20 @@ const About = () => {
           {techList.map((selectedItem) => (
             <div
               key={selectedItem.id}
-              className="group p-4 w-[200px] h-[200px] border-2 border-tyrel-medium rounded-md flex items-center justify-center flex-col gap-4 cursor-pointer transition-all"
+              className="group p-4 w-[100px] h-[100px] sm:w-[200px] sm:h-[200px] border-2 border-tyrel-medium rounded-md flex items-center justify-center flex-col gap-4 cursor-pointer transition-all"
               onClick={() => handleOpen(selectedItem.id)}
             >
-              <div className="w-[100px] h-[100px] overflow-hidden rounded-md transform transition-transform duration-300 group-hover:scale-125">
+              <div className=" w-[70px] h-[70px] sm:w-[100px] sm:h-[100px] overflow-hidden rounded-md transform transition-transform duration-300 group-hover:scale-125">
                 <Image
                   src={selectedItem.icon}
                   width={100}
                   height={100}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   alt={`${selectedItem.name}-img`}
                 />
               </div>
 
-              <span className="font-semibold text-base tracking-wider">
+              <span className="font-semibold hidden sm:block sm:text-base tracking-wider">
                 {selectedItem.name}
               </span>
             </div>
@@ -183,14 +183,14 @@ const About = () => {
                 className="object-contain"
               />
               <h2 className="text-lg font-semibold">{selectedItem.name}</h2>
-              <p className="text-sm text-gray-500">
+              <p className="text-[12px] sm:text-[16px] text-gray-500">
                 {selectedItem.description}
               </p>
               <a
                 href={selectedItem.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 hover:underline cursor-pointer"
+                className="text-tyrel-low hover:underline no-underline cursor-pointer"
               >
                 Lihat Dokumentasi →
               </a>
