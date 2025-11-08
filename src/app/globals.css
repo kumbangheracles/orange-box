@@ -458,3 +458,7 @@ body {
   transform-origin: -4vw -14vh;
   box-shadow: -20vmin 0 2.528271835623083vmin currentColor;
 }
+
+.ant-modal-content {
+  z-index: 999999999999999999999999999999;
+}
