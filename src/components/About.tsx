@@ -174,7 +174,10 @@ const About = () => {
         {techList
           .filter((selectedItem) => selectedItem.id === selectedId)
           .map((selectedItem) => (
-            <div className="flex flex-col items-center gap-4 text-center">
+            <div
+              className="flex flex-col items-center gap-4 text-center"
+              key={selectedItem.id}
+            >
               <Image
                 src={selectedItem.icon}
                 width={120}
