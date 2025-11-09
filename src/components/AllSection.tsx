@@ -1,6 +1,6 @@
 "use client";
-import { RightCircleOutlined } from "@ant-design/icons";
-import CardSummary from "./CardSummary";
+// import { RightCircleOutlined } from "@ant-design/icons";
+// import CardSummary from "./CardSummary";
 import TotalAmount from "./TotalAmount";
 // import dynamic from "next/dynamic";
 // import { useEffect } from "react";
@@ -19,22 +19,22 @@ interface PropTypes {
 // });
 
 const AllSection = ({ dataV4, dataV3, dataV1 }: PropTypes) => {
-  const dataSumm = [
-    {
-      id: 1,
-      title: "Organik",
-      icon: <RightCircleOutlined />,
-      totalData: dataV3 as number,
-      isMap: false,
-    },
-    {
-      id: 2,
-      title: "Anorganik",
-      icon: <RightCircleOutlined />,
-      totalData: dataV4 as number,
-      isMap: false,
-    },
-  ];
+  // const dataSumm = [
+  //   {
+  //     id: 1,
+  //     title: "Organik",
+  //     icon: <RightCircleOutlined />,
+  //     totalData: dataV3 as number,
+  //     isMap: false,
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Anorganik",
+  //     icon: <RightCircleOutlined />,
+  //     totalData: dataV4 as number,
+  //     isMap: false,
+  //   },
+  // ];
   return (
     <div className="p-4">
       <AutoRefresh />
