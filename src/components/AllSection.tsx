@@ -80,11 +80,11 @@ const AllSection = ({ dataV4, dataV3, dataV1 }: PropTypes) => {
       <div className="flex flex-col sm:flex-row gap-4 mt-4 sm:h-[394px]">
         <TotalAmount
           jenisSampah="anorganik"
-          dataAmount={Number.isNaN(dataV4) ? 0 : dataV4}
+          dataAmount={Number.isNaN(dataV4) ? 0 : 75}
         />
         <TotalAmount
           jenisSampah="organik"
-          dataAmount={Number.isNaN(dataV3) ? 0 : dataV3}
+          dataAmount={Number.isNaN(dataV3) ? 0 : 57}
         />
       </div>
       <div className="p-4 border-2 border-orange-400 bg-white rounded-lg mt-2">

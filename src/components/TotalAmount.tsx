@@ -57,7 +57,7 @@ const TotalAmount = ({ jenisSampah, dataAmount }: PropTypes) => {
       className={` p-7 sm:p-1 bg-white rounded-md border-2 border-orange-400 w-full flex items-center flex-col justify-center gap-3 h-full  overflow-hidden relative`}
     >
       <h4
-        className={`!font-bold absolute sm:left-10 sm:top-10 sm:text-5xl left-5 top-5 text-2xl ${cn(
+        className={`!font-bold absolute sm:left-5 sm:top-5 sm:text-5xl left-5 top-5 text-2xl ${cn(
           jenisSampah === "organik" ? "text-[#61B852]" : "text-[#1E90FF]"
         )}`}
       >
@@ -73,6 +73,12 @@ const TotalAmount = ({ jenisSampah, dataAmount }: PropTypes) => {
         style={{ color: jenisSampah === "organik" ? "#61B852" : "#1E90FF" }}
       >
         {jenisSampah === "organik" ? "Organik" : "Anorganik"}
+      </span>
+
+      <span className="py-1 px-2 rounded-xl bg-tyrel-low text-white font-semibold text-[10px] sm:text-sm tracking-wider">
+        {jenisSampah === "anorganik"
+          ? "Last Update: 09/11/2025"
+          : "Last Update: 07/11/2025"}
       </span>
     </div>
   );
