@@ -77,8 +77,8 @@ const TotalAmount = ({ jenisSampah, dataAmount }: PropTypes) => {
 
       <span className="py-1 px-2 rounded-xl bg-tyrel-low text-white font-semibold text-[10px] sm:text-sm tracking-wider">
         {jenisSampah === "anorganik"
-          ? "Last Update: 09/11/2025"
-          : "Last Update: 07/11/2025"}
+          ? "Last Update: 02/12/2025"
+          : "Last Update: 02/12/2025"}
       </span>
     </div>
   );
