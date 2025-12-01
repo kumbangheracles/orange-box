@@ -19,74 +19,38 @@ interface PropTypes {
 // });
 
 const AllSection = ({ dataV4, dataV3, dataV1 }: PropTypes) => {
-  // const dataSumm = [
-  //   {
-  //     id: 1,
-  //     title: "Organik",
-  //     icon: <RightCircleOutlined />,
-  //     totalData: dataV3 as number,
-  //     isMap: false,
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Anorganik",
-  //     icon: <RightCircleOutlined />,
-  //     totalData: dataV4 as number,
-  //     isMap: false,
-  //   },
-  // ];
+  // Dummy berbeda untuk organik & anorganik
+  const dummyAnorganik = {
+    "08/11/2025": 45,
+    "09/11/2025": 60,
+    "15/11/2025": 72,
+    "01/12/2025": 50,
+  };
+
+  const dummyOrganik = {
+    "08/11/2025": 65,
+    "09/11/2025": 40,
+    "15/11/2025": 90,
+    "01/12/2025": 55,
+  };
+
   return (
     <div className="p-4">
       <AutoRefresh />
-      <div className="grid grid-cols-3 lg:flex gap-2 lg:gap-4  ">
-        {/* {Array.from({ length: 3 }, (_, index) => {
-            const delay = 100 + Math.floor(index / 3) * 50;
 
-            return (
-              <CardSummary
-                key={index}
-                title={`Temperature ${index + 1}`}
-                totalData={2000}
-                icon={<RightCircleOutlined />}
-                dataAos="fade-right"
-                delay={delay}
-              />
-            );
-          })} */}
-
-        {/* {dataSumm.map((item) => {
-          const delay = 100 + Math.floor(item.id / 3) * 50;
-
-          return (
-            <CardSummary
-              key={item.id}
-              title={item.title}
-              totalData={
-                item.isMap
-                  ? (item.totalData as unknown as string)
-                  : Number.isNaN(Number(item?.totalData)) ||
-                    item?.totalData == null
-                  ? 0
-                  : Number(item.totalData)
-              }
-              isMap={item.isMap}
-              icon={<RightCircleOutlined />}
-              dataAos="fade-right"
-              delay={delay}
-            />
-          );
-        })} */}
-      </div>
       <div className="flex flex-col sm:flex-row gap-4 mt-4 sm:h-[394px]">
         <TotalAmount
           jenisSampah="anorganik"
+          dummyData={dummyAnorganik}
           dataAmount={Number.isNaN(dataV4) ? 0 : 75}
         />
         <TotalAmount
           jenisSampah="organik"
-          dataAmount={Number.isNaN(dataV3) ? 0 : 57}
+          dummyData={dummyOrganik}
+          dataAmount={Number.isNaN(dataV3) ? 0 : 75}
         />
       </div>
+
       <div className="p-4 border-2 border-orange-400 bg-white rounded-lg mt-2">
         <About />
       </div>
