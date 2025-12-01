@@ -6,8 +6,13 @@ import About from "./About";
 import { useState } from "react";
 import { Dropdown } from "antd";
 import { DownOutlined } from "@ant-design/icons";
-
-const AllSection = ({}) => {
+interface PropTypes {
+  dataV1?: string;
+  dataV2?: number;
+  dataV3?: number;
+  dataV4?: number;
+}
+const AllSection = ({}: PropTypes) => {
   const dummyAnorganik = {
     "08/11/2025": 45,
     "09/11/2025": 60,
