@@ -6,29 +6,26 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 interface PropTypes {
   jenisSampah?: "organik" | "anorganik";
-  dataAmount?: number;
+  dummyData: Record<string, number>;
+  selectedDate: string;
 }
 
-const TotalAmount = ({ jenisSampah, dataAmount }: PropTypes) => {
-  const integerDataAmouont = Math.floor(dataAmount as number);
+const TotalAmount = ({ jenisSampah, dummyData, selectedDate }: PropTypes) => {
+  const currentAmount = dummyData[selectedDate];
+  const integerAmount = Math.floor(currentAmount);
 
   const data = {
-    labels: jenisSampah === "organik" ? ["Organik"] : ["Anorganik"], // label kategori
+    labels: jenisSampah === "organik" ? ["Organik"] : ["Anorganik"],
     datasets: [
       {
         label: "Percentage",
-        data: [dataAmount, 100 - dataAmount!], // persentase masing-masing kategori
+        data: [currentAmount, 100 - currentAmount],
         backgroundColor: [
           jenisSampah === "organik" ? "#61B852" : "#1E90FF",
           "#ffffff",
         ],
-        borderColor: [
-          "#000000",
-          // "rgba(255, 205, 86, 1)",
-          // "rgba(255, 99, 132, 1)",
-        ],
+        borderColor: ["#000000"],
         borderWidth: 2,
-        // circumference: 180,
       },
     ],
   };
@@ -36,34 +33,19 @@ const TotalAmount = ({ jenisSampah, dataAmount }: PropTypes) => {
   const options = {
     responsive: true,
     cutout: "50%",
-    plugins: {
-      legend: {
-        display: false,
-      },
-      title: {
-        display: true,
-        text: "Persentase Jenis Sampah",
-      },
-      elements: {
-        center: {
-          text: `${dataAmount}%`,
-        },
-      },
-    },
+    plugins: { legend: { display: false }, title: { display: false } },
   };
 
   return (
-    <div
-      className={` p-7 sm:p-1 bg-white rounded-md border-2 border-orange-400 w-full flex items-center flex-col justify-center gap-3 h-full  overflow-hidden relative`}
-    >
+    <div className="p-7 sm:p-1 bg-white rounded-md border-2 border-orange-400 w-full flex items-center flex-col justify-center gap-3 h-full relative">
       <h4
         className={`!font-bold absolute sm:left-5 sm:top-5 sm:text-5xl left-5 top-5 text-2xl ${cn(
           jenisSampah === "organik" ? "text-[#61B852]" : "text-[#1E90FF]"
         )}`}
       >
-        {integerDataAmouont}%
-        {/* {jenisSampah === "organik" ? "Organik" : "Anorganik"} */}
+        {integerAmount}%
       </h4>
+
       <div className="flex justify-center items-center h-[200px] sm:h-[300px]">
         <Doughnut data={data} options={options} />
       </div>
@@ -73,12 +55,6 @@ const TotalAmount = ({ jenisSampah, dataAmount }: PropTypes) => {
         style={{ color: jenisSampah === "organik" ? "#61B852" : "#1E90FF" }}
       >
         {jenisSampah === "organik" ? "Organik" : "Anorganik"}
-      </span>
-
-      <span className="py-1 px-2 rounded-xl bg-tyrel-low text-white font-semibold text-[10px] sm:text-sm tracking-wider">
-        {jenisSampah === "anorganik"
-          ? "Last Update: 02/12/2025"
-          : "Last Update: 02/12/2025"}
       </span>
     </div>
   );
